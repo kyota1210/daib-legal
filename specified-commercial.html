@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特定商取引法に基づく表記 — DaiB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:         #F7F8FA;
+      --surface:    #FFFFFF;
+      --border:     #E2E6EE;
+      --text:       #1B2033;
+      --text-muted: #6B7585;
+      --accent:     #3D6CE8;
+      --accent-sub: #EEF2FD;
+      --tag-bg:     #EEF2FD;
+      --tag-text:   #2D55C0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg:         #111520;
+        --surface:    #1A2035;
+        --border:     #2A3350;
+        --text:       #DDE2F0;
+        --text-muted: #7A89A8;
+        --accent:     #5A85F0;
+        --accent-sub: #1C2A50;
+        --tag-bg:     #1C2A50;
+        --tag-text:   #7AABF8;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg:         #111520;
+      --surface:    #1A2035;
+      --border:     #2A3350;
+      --text:       #DDE2F0;
+      --text-muted: #7A89A8;
+      --accent:     #5A85F0;
+      --accent-sub: #1C2A50;
+      --tag-bg:     #1C2A50;
+      --tag-text:   #7AABF8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .app-wordmark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .app-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .app-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    .app-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .header-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .doc-title-block {
+      margin-bottom: 48px;
+    }
+
+    .doc-title-block h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+      margin-bottom: 12px;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── Disclosure table ─────────────────────────── */
+    .disclosure-table {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    .disclosure-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .disclosure-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .disclosure-table th {
+      background: var(--accent-sub);
+      color: var(--tag-text);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: left;
+      padding: 14px 20px;
+      width: 36%;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+
+    .disclosure-table td {
+      background: var(--surface);
+      font-size: 14px;
+      padding: 14px 20px;
+      vertical-align: top;
+      line-height: 1.8;
+    }
+
+    .disclosure-table td a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .disclosure-table td small {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .price-highlight {
+      font-size: 20px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ── Note section ─────────────────────────────── */
+    .note-section {
+      margin-top: 40px;
+      padding: 20px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .note-section strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .page-footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 560px) {
+      .disclosure-table th {
+        width: 42%;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <header class="site-header">
+      <a class="app-wordmark" href="#">
+        <div class="app-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 8a5 5 0 1 1 0-10A5 5 0 0 1 12 17zM9 3l-1.5 2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2.5L15 3H9z"/>
+          </svg>
+        </div>
+        <span class="app-name">DaiB</span>
+      </a>
+      <span class="header-label">Legal</span>
+    </header>
+
+    <div class="doc-title-block">
+      <h1>特定商取引法に基づく表記</h1>
+      <div>
+        <span class="meta-chip">最終更新日：2026年9月6日</span>
+      </div>
+    </div>
+
+    <div style="overflow-x: auto;">
+      <table class="disclosure-table">
+        <tbody>
+          <tr>
+            <th>販売業者</th>
+            <td>Kyota</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>
+              請求があった場合には遅滞なく開示します。
+              <small>お問い合わせ先（下記）よりご連絡ください。</small>
+            </td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td>
+              請求があった場合には遅滞なく開示します。
+              <small>お問い合わせ先（下記）よりご連絡ください。</small>
+            </td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><a href="mailto:support@daibapp.com">support@daibapp.com</a></td>
+          </tr>
+          <tr>
+            <th>サービス名</th>
+            <td>DaiB（クローズドSNSアプリ）</td>
+          </tr>
+          <tr>
+            <th>販売価格</th>
+            <td>
+              <span class="price-highlight">¥250</span>／月（税込）
+              <small>DaiB Plus プラン。無料プランは料金不要。</small>
+            </td>
+          </tr>
+          <tr>
+            <th>代金の支払方法</th>
+            <td>Apple App Store のアプリ内課金（クレジットカード・Apple Pay 等、各ストアが定める決済手段）</td>
+          </tr>
+          <tr>
+            <th>代金の支払時期</th>
+            <td>Apple の規定に基づき、サブスクリプション開始時および各更新日に自動請求されます。</td>
+          </tr>
+          <tr>
+            <th>サービスの提供時期</th>
+            <td>決済完了後、即時にご利用いただけます。</td>
+          </tr>
+          <tr>
+            <th>サブスクリプションの<br>更新・解約</th>
+            <td>
+              サブスクリプションは自動更新されます。次回更新日の24時間前までに App Store の「サブスクリプション管理」からキャンセルすることで、次の更新を停止できます。
+              <small>解約後も当該期間終了まで Plusプランをご利用いただけます。</small>
+            </td>
+          </tr>
+          <tr>
+            <th>返品・キャンセル</th>
+            <td>
+              デジタルコンテンツの性質上、原則として購入後の返金・キャンセルには対応しておりません。ただし、Apple のポリシーに基づく返金申請はこの限りではありません。
+            </td>
+          </tr>
+          <tr>
+            <th>動作環境</th>
+            <td>iOS（最新バージョン推奨）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-section">
+      <strong>お問い合わせ</strong>
+      上記に関するご質問は <a href="mailto:support@daibapp.com" style="color: var(--accent);">support@daibapp.com</a> またはアプリ内の <strong>設定 → お問い合わせ</strong> よりご連絡ください。
+    </div>
+
+    <footer class="page-footer">
+      <span>© 2026 DaiB</span>
+      <nav class="nav-links">
+        <a href="./privacy-policy.html">プライバシーポリシー</a>
+        <a href="./terms.html">利用規約</a>
+      </nav>
+    </footer>
+
+  </div>
+</body>
+</html>

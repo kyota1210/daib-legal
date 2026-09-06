@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>利用規約 — DaiB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:         #F7F8FA;
+      --surface:    #FFFFFF;
+      --border:     #E2E6EE;
+      --text:       #1B2033;
+      --text-muted: #6B7585;
+      --accent:     #3D6CE8;
+      --accent-sub: #EEF2FD;
+      --tag-bg:     #EEF2FD;
+      --tag-text:   #2D55C0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg:         #111520;
+        --surface:    #1A2035;
+        --border:     #2A3350;
+        --text:       #DDE2F0;
+        --text-muted: #7A89A8;
+        --accent:     #5A85F0;
+        --accent-sub: #1C2A50;
+        --tag-bg:     #1C2A50;
+        --tag-text:   #7AABF8;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg:         #111520;
+      --surface:    #1A2035;
+      --border:     #2A3350;
+      --text:       #DDE2F0;
+      --text-muted: #7A89A8;
+      --accent:     #5A85F0;
+      --accent-sub: #1C2A50;
+      --tag-bg:     #1C2A50;
+      --tag-text:   #7AABF8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .app-wordmark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .app-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .app-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    .app-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .header-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .doc-title-block {
+      margin-bottom: 48px;
+    }
+
+    .doc-title-block h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+      margin-bottom: 12px;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .policy-section {
+      margin-bottom: 44px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      text-wrap: balance;
+    }
+
+    .section-body p {
+      margin-bottom: 12px;
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .policy-list li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 6px;
+      align-items: baseline;
+    }
+
+    .policy-list li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      justify-self: center;
+    }
+
+    .prohibited-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .prohibited-list li {
+      background: var(--surface);
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+
+    .plan-box {
+      background: var(--accent-sub);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 12px;
+    }
+
+    .plan-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--tag-text);
+      margin-bottom: 8px;
+    }
+
+    .plan-price {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 12px;
+    }
+
+    .plan-price span {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .contact-box strong {
+      color: var(--text);
+    }
+
+    .contact-box a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .page-footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <header class="site-header">
+      <a class="app-wordmark" href="#">
+        <div class="app-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 8a5 5 0 1 1 0-10A5 5 0 0 1 12 17zM9 3l-1.5 2H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2.5L15 3H9z"/>
+          </svg>
+        </div>
+        <span class="app-name">DaiB</span>
+      </a>
+      <span class="header-label">Legal</span>
+    </header>
+
+    <div class="doc-title-block">
+      <h1>利用規約</h1>
+      <div>
+        <span class="meta-chip">最終更新日：2026年9月6日</span>
+      </div>
+    </div>
+
+    <!-- 第1条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">総則・適用</h2>
+      </div>
+      <div class="section-body">
+        <p>本利用規約（以下「本規約」といいます。）は、Kyota（以下「運営者」といいます。）が提供するクローズドSNSアプリ「DaiB」（以下「本サービス」といいます。）の利用に関する条件を定めるものです。</p>
+        <p>本サービスをご利用いただくことで、本規約に同意したものとみなします。同意いただけない場合は、本サービスをご利用いただくことはできません。</p>
+      </div>
+    </section>
+
+    <!-- 第2条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">アカウント登録</h2>
+      </div>
+      <div class="section-body">
+        <ul class="policy-list">
+          <li><span>本サービスの利用には、アカウント登録が必要です。</span></li>
+          <li><span>アカウントは1人につき1つとします。複数アカウントの作成・利用は禁止します。</span></li>
+          <li><span>ユーザーはアカウントの管理責任を負います。パスワードの管理は厳重に行ってください。第三者による不正利用が発生した場合、運営者は責任を負いません。</span></li>
+          <li><span>本サービスは13歳以上の方を対象としています。13歳未満の方はご利用いただけません。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 第3条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">禁止事項</h2>
+      </div>
+      <div class="section-body">
+        <p>ユーザーは、本サービスの利用にあたり、以下の行為を行ってはなりません。</p>
+        <ul class="prohibited-list" style="margin-top: 12px;">
+          <li>法令または公序良俗に違反する行為</li>
+          <li>他のユーザーや第三者を誹謗中傷・脅迫・ハラスメントする行為</li>
+          <li>他のユーザーのプライバシーを侵害する行為</li>
+          <li>著作権・商標権その他の知的財産権を侵害するコンテンツの投稿</li>
+          <li>わいせつ・暴力的・差別的な表現を含むコンテンツの投稿</li>
+          <li>スパム行為、不正なフォロー・フレンド申請</li>
+          <li>本サービスの運営を妨害する行為（不正アクセス、リバースエンジニアリング等）</li>
+          <li>他のユーザーのアカウントを不正に使用する行為</li>
+          <li>営利目的の広告・勧誘行為（運営者が許可した場合を除く）</li>
+          <li>複数アカウントの作成・利用</li>
+          <li>その他、運営者が不適切と判断する行為</li>
+        </ul>
+        <p style="margin-top: 16px; font-size: 14px; color: var(--text-muted);">違反が確認された場合、運営者は事前通知なくアカウントを停止・削除する場合があります。</p>
+      </div>
+    </section>
+
+    <!-- 第4条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">投稿コンテンツ</h2>
+      </div>
+      <div class="section-body">
+        <ul class="policy-list">
+          <li><span>ユーザーが投稿したコンテンツ（写真・文章等）の著作権はユーザーに帰属します。</span></li>
+          <li><span>ユーザーは、投稿コンテンツについて、本サービスの運営・改善・プロモーションに必要な範囲で、運営者が無償・非独占的に使用することを許諾するものとします。</span></li>
+          <li><span>投稿コンテンツが第三者の権利を侵害していないことをユーザー自身が保証するものとします。</span></li>
+          <li><span>運営者は、本規約に違反するコンテンツを削除・非表示にする権利を有します。</span></li>
+          <li><span>本サービスはクローズドSNSです。投稿はフレンド関係にあるユーザー間のみで共有されます。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 第5条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">サブスクリプション（Plus プラン）</h2>
+      </div>
+      <div class="section-body">
+        <div class="plan-box">
+          <p class="plan-name">DaiB Plus プラン</p>
+          <p class="plan-price">¥250 <span>/ 月（税込）</span></p>
+          <ul class="policy-list">
+            <li><span>決済は Apple App Store の規定に従い処理されます。</span></li>
+            <li><span>サブスクリプションは自動更新されます。次回更新日の24時間以上前にキャンセルしない限り、自動的に更新されます。</span></li>
+            <li><span>解約は App Store の「サブスクリプション管理」画面から行えます。</span></li>
+            <li><span>デジタルコンテンツの性質上、原則として返金には対応しておりません。ただし、Apple のポリシーに基づく返金申請はこの限りではありません。</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第6条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">サービスの変更・停止・終了</h2>
+      </div>
+      <div class="section-body">
+        <ul class="policy-list">
+          <li><span>運営者は、ユーザーへの事前通知なく、本サービスの内容を変更・追加・削除できるものとします。</span></li>
+          <li><span>運営者は、システムメンテナンス・障害・その他の事由により、本サービスを一時停止する場合があります。</span></li>
+          <li><span>運営者は、本サービスを終了する場合、可能な限り事前にユーザーへ通知します。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 第7条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2 class="section-title">免責事項</h2>
+      </div>
+      <div class="section-body">
+        <ul class="policy-list">
+          <li><span>本サービスは現状有姿で提供されます。運営者は、本サービスの完全性・正確性・継続性を保証しません。</span></li>
+          <li><span>ユーザー間のトラブルについて、運営者は一切の責任を負いません。</span></li>
+          <li><span>本サービスの利用または利用不能によって生じた損害について、運営者の故意または重過失による場合を除き、運営者は責任を負いません。</span></li>
+          <li><span>天災・通信障害・第三者による不正アクセス等、運営者の合理的な支配の及ばない事由による損害について、運営者は責任を負いません。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 第8条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <h2 class="section-title">知的財産権</h2>
+      </div>
+      <div class="section-body">
+        <p>本サービスに関するソフトウェア・デザイン・ロゴ等の知的財産権は、ユーザーの投稿コンテンツを除き、運営者に帰属します。ユーザーは、これらを無断で複製・転用・配布してはなりません。</p>
+      </div>
+    </section>
+
+    <!-- 第9条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">09</span>
+        <h2 class="section-title">規約の変更</h2>
+      </div>
+      <div class="section-body">
+        <p>運営者は、必要に応じて本規約を変更できるものとします。重要な変更を行う場合は、アプリ内通知またはその他の適切な方法でユーザーに事前にお知らせします。変更後も本サービスを継続して利用した場合、変更後の規約に同意したものとみなします。</p>
+      </div>
+    </section>
+
+    <!-- 第10条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">10</span>
+        <h2 class="section-title">準拠法・管轄裁判所</h2>
+      </div>
+      <div class="section-body">
+        <p>本規約は日本法に準拠して解釈されます。本サービスに関して生じた紛争については、運営者の所在地を管轄する日本の裁判所を第一審の専属的合意管轄裁判所とします。</p>
+      </div>
+    </section>
+
+    <!-- 第11条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">11</span>
+        <h2 class="section-title">お問い合わせ</h2>
+      </div>
+      <div class="section-body">
+        <div class="contact-box">
+          本規約に関するご質問は、アプリ内の <strong>設定 → お問い合わせ</strong> または <a href="mailto:support@daibapp.com">support@daibapp.com</a> までお問い合わせください。
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>© 2026 DaiB</span>
+      <nav class="nav-links">
+        <a href="./privacy-policy.html">プライバシーポリシー</a>
+        <a href="./specified-commercial.html">特定商取引法に基づく表記</a>
+      </nav>
+    </footer>
+
+  </div>
+</body>
+</html>
