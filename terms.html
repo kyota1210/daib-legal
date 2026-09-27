@@ -212,6 +212,47 @@
       font-size: 14px;
     }
 
+    /* ── モデレーション box ───────────────────────── */
+    .moderation-box {
+      background: var(--accent-sub);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+
+    .moderation-box p {
+      font-size: 13px;
+      color: var(--tag-text);
+      font-weight: 700;
+      margin-bottom: 10px !important;
+    }
+
+    .moderation-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .moderation-box ul li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 6px;
+      align-items: baseline;
+      font-size: 14px;
+    }
+
+    .moderation-box ul li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      justify-self: center;
+    }
+
     .plan-box {
       background: var(--accent-sub);
       border-radius: 12px;
@@ -238,6 +279,38 @@
       font-size: 14px;
       font-weight: 400;
       color: var(--text-muted);
+    }
+
+    /* ── 損害賠償テーブル ─────────────────────────── */
+    .liability-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 14px;
+      margin-top: 12px;
+      background: var(--border);
+    }
+
+    .liability-table th,
+    .liability-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .liability-table th {
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: var(--accent-sub);
+    }
+
+    .liability-table tr:last-child td {
+      border-bottom: none;
     }
 
     .contact-box {
@@ -307,7 +380,7 @@
     <div class="doc-title-block">
       <h1>利用規約</h1>
       <div>
-        <span class="meta-chip">最終更新日：2026年9月6日</span>
+        <span class="meta-chip">最終更新日：2026年9月27日</span>
       </div>
     </div>
 
@@ -319,7 +392,7 @@
       </div>
       <div class="section-body">
         <p>本利用規約（以下「本規約」といいます。）は、Kyota（以下「運営者」といいます。）が提供するクローズドSNSアプリ「DaiB」（以下「本サービス」といいます。）の利用に関する条件を定めるものです。</p>
-        <p>本サービスをご利用いただくことで、本規約に同意したものとみなします。同意いただけない場合は、本サービスをご利用いただくことはできません。</p>
+        <p>本サービスをご利用いただくことで、本規約および<a href="./privacy-policy.html" style="color: var(--accent);">プライバシーポリシー</a>に同意したものとみなします。同意いただけない場合は、本サービスをご利用いただくことはできません。</p>
       </div>
     </section>
 
@@ -332,8 +405,9 @@
       <div class="section-body">
         <ul class="policy-list">
           <li><span>本サービスの利用には、アカウント登録が必要です。</span></li>
+          <li><span>ユーザーは、アカウント登録時に本規約および<a href="./privacy-policy.html" style="color: var(--accent);">プライバシーポリシー</a>への同意を確認した上で登録を完了するものとします。登録完了をもって、本規約およびプライバシーポリシーに同意したものとみなします。</span></li>
           <li><span>アカウントは1人につき1つとします。複数アカウントの作成・利用は禁止します。</span></li>
-          <li><span>ユーザーはアカウントの管理責任を負います。パスワードの管理は厳重に行ってください。第三者による不正利用が発生した場合、運営者は責任を負いません。</span></li>
+          <li><span>ユーザーはアカウントの管理責任を負います。パスワードの管理は厳重に行ってください。第三者による不正利用が発生した場合、運営者の故意または過失による場合を除き、運営者は責任を負いません。</span></li>
           <li><span>本サービスは13歳以上の方を対象としています。13歳未満の方はご利用いただけません。</span></li>
         </ul>
       </div>
@@ -360,23 +434,31 @@
           <li>複数アカウントの作成・利用</li>
           <li>その他、運営者が不適切と判断する行為</li>
         </ul>
-        <p style="margin-top: 16px; font-size: 14px; color: var(--text-muted);">違反が確認された場合、運営者は事前通知なくアカウントを停止・削除する場合があります。</p>
+        <p style="margin-top: 16px; font-size: 14px; color: var(--text-muted);">違反が確認された場合、運営者は事前通知なくコンテンツを削除し、またはアカウントを停止・削除する場合があります。</p>
       </div>
     </section>
 
-    <!-- 第4条 -->
+    <!-- 第4条（新規） -->
     <section class="policy-section">
       <div class="section-header">
         <span class="section-num">04</span>
-        <h2 class="section-title">投稿コンテンツ</h2>
+        <h2 class="section-title">通報・ブロックとモデレーション</h2>
       </div>
       <div class="section-body">
-        <ul class="policy-list">
-          <li><span>ユーザーが投稿したコンテンツ（写真・文章等）の著作権はユーザーに帰属します。</span></li>
-          <li><span>ユーザーは、投稿コンテンツについて、本サービスの運営・改善・プロモーションに必要な範囲で、運営者が無償・非独占的に使用することを許諾するものとします。</span></li>
-          <li><span>投稿コンテンツが第三者の権利を侵害していないことをユーザー自身が保証するものとします。</span></li>
-          <li><span>運営者は、本規約に違反するコンテンツを削除・非表示にする権利を有します。</span></li>
-          <li><span>本サービスはクローズドSNSです。投稿はフレンド関係にあるユーザー間のみで共有されます。</span></li>
+        <p>当アプリは、不適切なコンテンツや迷惑行為を一切容認しません。安全なコミュニティを維持するため、以下の仕組みを設けています。</p>
+        <div class="moderation-box">
+          <p>ユーザーができること</p>
+          <ul>
+            <li><span>不適切と思われる投稿・ユーザーをアプリ内の通報機能で報告できます</span></li>
+            <li><span>特定のユーザーをブロックして、相手からの閲覧・連絡を遮断できます</span></li>
+          </ul>
+        </div>
+        <ul class="policy-list" style="margin-top: 16px;">
+          <li><span>運営者は、受け付けた通報を<strong>原則24時間以内</strong>に確認します。</span></li>
+          <li><span>違反が認められた場合、当該コンテンツの削除、投稿の非表示化、またはアカウントの停止・削除等の措置を講じます。</span></li>
+          <li><span>通報の内容および通報者の情報は、法令に基づく場合を除き、通報対象のユーザーには開示しません。</span></li>
+          <li><span>虚偽または嫌がらせを目的とした通報が認められる場合、通報者に対しても措置を講じることがあります。</span></li>
+          <li><span>通報の調査・措置の結果は、原則として個別にご連絡はいたしません。</span></li>
         </ul>
       </div>
     </section>
@@ -385,6 +467,23 @@
     <section class="policy-section">
       <div class="section-header">
         <span class="section-num">05</span>
+        <h2 class="section-title">投稿コンテンツ</h2>
+      </div>
+      <div class="section-body">
+        <ul class="policy-list">
+          <li><span>ユーザーが投稿したコンテンツ（写真・文章等）の著作権はユーザーに帰属します。</span></li>
+          <li><span>ユーザーは、投稿コンテンツについて、本サービスの運営・改善に必要な範囲で、運営者が無償・非独占的に使用することを許諾するものとします。</span></li>
+          <li><span>投稿コンテンツが第三者の権利を侵害していないことをユーザー自身が保証するものとします。</span></li>
+          <li><span>運営者は、本規約に違反するコンテンツを削除・非表示にする権利を有します。</span></li>
+          <li><span>本サービスはクローズドSNSです。投稿はフレンド関係にあるユーザー間のみで共有されます。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 第6条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">06</span>
         <h2 class="section-title">サブスクリプション（Plus プラン）</h2>
       </div>
       <div class="section-body">
@@ -401,10 +500,10 @@
       </div>
     </section>
 
-    <!-- 第6条 -->
+    <!-- 第7条 -->
     <section class="policy-section">
       <div class="section-header">
-        <span class="section-num">06</span>
+        <span class="section-num">07</span>
         <h2 class="section-title">サービスの変更・停止・終了</h2>
       </div>
       <div class="section-body">
@@ -416,30 +515,38 @@
       </div>
     </section>
 
-    <!-- 第7条 -->
+    <!-- 第8条（旧07・内容修正） -->
     <section class="policy-section">
       <div class="section-header">
-        <span class="section-num">07</span>
-        <h2 class="section-title">免責事項</h2>
+        <span class="section-num">08</span>
+        <h2 class="section-title">免責事項・損害賠償の範囲</h2>
       </div>
       <div class="section-body">
         <ul class="policy-list">
           <li><span>本サービスは現状有姿で提供されます。運営者は、本サービスの完全性・正確性・継続性を保証しません。</span></li>
-          <li><span>ユーザー間のトラブルについて、運営者は一切の責任を負いません。</span></li>
-          <li><span>本サービスの利用または利用不能によって生じた損害について、運営者の故意または重過失による場合を除き、運営者は責任を負いません。</span></li>
+          <li><span>ユーザー間のトラブルについては、当事者間での解決を原則とします。運営者は第4条に定めるモデレーション措置を講じますが、紛争への直接介入義務を負うものではなく、運営者の故意または過失による場合を除き、トラブルから生じた損害について賠償責任を負いません。なお、運営者に過失がある場合の賠償範囲は下表に従います。</span></li>
           <li><span>天災・通信障害・第三者による不正アクセス等、運営者の合理的な支配の及ばない事由による損害について、運営者は責任を負いません。</span></li>
         </ul>
-      </div>
-    </section>
 
-    <!-- 第8条 -->
-    <section class="policy-section">
-      <div class="section-header">
-        <span class="section-num">08</span>
-        <h2 class="section-title">知的財産権</h2>
-      </div>
-      <div class="section-body">
-        <p>本サービスに関するソフトウェア・デザイン・ロゴ等の知的財産権は、ユーザーの投稿コンテンツを除き、運営者に帰属します。ユーザーは、これらを無断で複製・転用・配布してはなりません。</p>
+        <p style="margin-top: 20px; margin-bottom: 8px; font-size: 14px; font-weight: 700;">損害賠償の範囲（消費者契約法第8条に基づく）</p>
+        <table class="liability-table">
+          <thead>
+            <tr>
+              <th>運営者の帰責事由</th>
+              <th>賠償責任の範囲</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>故意または重過失</td>
+              <td>発生した損害の全額を賠償します</td>
+            </tr>
+            <tr>
+              <td>軽過失</td>
+              <td>直接かつ通常の損害に限り、過去12か月間にユーザーが支払った利用料金の総額、または金1,000円のいずれか高い額を上限として賠償責任を負います</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -447,10 +554,10 @@
     <section class="policy-section">
       <div class="section-header">
         <span class="section-num">09</span>
-        <h2 class="section-title">規約の変更</h2>
+        <h2 class="section-title">知的財産権</h2>
       </div>
       <div class="section-body">
-        <p>運営者は、必要に応じて本規約を変更できるものとします。重要な変更を行う場合は、アプリ内通知またはその他の適切な方法でユーザーに事前にお知らせします。変更後も本サービスを継続して利用した場合、変更後の規約に同意したものとみなします。</p>
+        <p>本サービスに関するソフトウェア・デザイン・ロゴ等の知的財産権は、ユーザーの投稿コンテンツを除き、運営者に帰属します。ユーザーは、これらを無断で複製・転用・配布してはなりません。</p>
       </div>
     </section>
 
@@ -458,10 +565,16 @@
     <section class="policy-section">
       <div class="section-header">
         <span class="section-num">10</span>
-        <h2 class="section-title">準拠法・管轄裁判所</h2>
+        <h2 class="section-title">退会・アカウント削除</h2>
       </div>
       <div class="section-body">
-        <p>本規約は日本法に準拠して解釈されます。本サービスに関して生じた紛争については、運営者の所在地を管轄する日本の裁判所を第一審の専属的合意管轄裁判所とします。</p>
+        <ul class="policy-list">
+          <li><span>退会（アカウント削除）は、アプリ内の <strong>設定 → アカウント → アカウントの削除</strong> からいつでも実行できます。</span></li>
+          <li><span>退会手続き完了後、投稿・プロフィール・フォロー関係等の個人データは速やかに削除または匿名化されます。バックアップから完全に消去されるまで最長30日かかる場合があります。</span></li>
+          <li><span>規約違反・通報に関する記録は、不正アカウントの再登録防止のため、退会後も最長1年間保持する場合があります（プライバシーポリシー第8条）。</span></li>
+          <li><span>Plus プランを契約中の場合は、退会前に App Store のサブスクリプション管理画面でキャンセル手続きを行ってください。退会しても課金中のサブスクリプションは自動的にキャンセルされません。</span></li>
+          <li><span>退会後の再登録は可能ですが、削除されたデータは復元できません。</span></li>
+        </ul>
       </div>
     </section>
 
@@ -469,6 +582,29 @@
     <section class="policy-section">
       <div class="section-header">
         <span class="section-num">11</span>
+        <h2 class="section-title">規約の変更</h2>
+      </div>
+      <div class="section-body">
+        <p>運営者は、民法第548条の4の規定に基づき、ユーザーの一般の利益に適合する場合、または変更の必要性・内容の相当性その他の合理的な事由がある場合に、本規約を変更できるものとします。</p>
+        <p>規約を変更する場合は、変更内容および効力発生日を、効力発生日より前に、アプリ内通知またはその他の適切な方法でユーザーに周知します。効力発生日以降も本サービスを継続して利用した場合、変更後の規約に同意したものとみなします。</p>
+      </div>
+    </section>
+
+    <!-- 第12条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">12</span>
+        <h2 class="section-title">準拠法・管轄裁判所</h2>
+      </div>
+      <div class="section-body">
+        <p>本規約は日本法に準拠して解釈されます。本サービスに関して生じた紛争については、運営者の所在地を管轄する日本の裁判所を第一審の専属的合意管轄裁判所とします。</p>
+      </div>
+    </section>
+
+    <!-- 第13条 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">13</span>
         <h2 class="section-title">お問い合わせ</h2>
       </div>
       <div class="section-body">

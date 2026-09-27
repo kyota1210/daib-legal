@@ -385,14 +385,14 @@
     <div class="doc-title-block">
       <h1>プライバシーポリシー</h1>
       <div class="meta-row">
-        <span class="meta-chip">最終更新日：2026年9月6日</span>
+        <span class="meta-chip">最終更新日：2026年9月27日</span>
       </div>
     </div>
 
     <!-- Intro -->
     <div class="policy-section">
       <div class="section-body">
-        <p>DaiB（以下「当アプリ」といいます。）は、ユーザーの個人情報の保護を重要視しています。本プライバシーポリシーは、当アプリがどのように個人情報を収集、使用、保護するかについて説明します。</p>
+        <p>Kyota（以下「運営者」といいます。）が運営する DaiB（以下「当アプリ」といいます。）は、ユーザーの個人情報の保護を重要視しています。本プライバシーポリシーは、当アプリがどのように個人情報を収集、使用、保護するかについて説明します。</p>
       </div>
     </div>
 
@@ -405,7 +405,7 @@
       <div class="section-body">
         <p>当アプリは、サービスの提供に必要な範囲で、以下の情報を収集・保存します。</p>
         <ul class="policy-list">
-          <li><span><strong>アカウント情報</strong>：メールアドレス、ユーザー名、自己紹介、プロフィール画像（アバター）。パスワードは Supabase Auth により安全にハッシュ化され、当アプリ運営者は平文を取得しません。</span></li>
+          <li><span><strong>アカウント情報</strong>：メールアドレス、ユーザー名、自己紹介、プロフィール画像（アバター）。パスワードは Supabase Auth により安全にハッシュ化され、運営者は平文を取得しません。</span></li>
           <li><span><strong>投稿情報</strong>：投稿した写真、タイトル、説明、日付、カテゴリー情報、「スレッドに表示する」設定</span></li>
           <li><span><strong>フォロー関係</strong>：フォロー・フォロワー・フレンド関係（誰と相互承認しているか）</span></li>
           <li><span><strong>リアクション</strong>：投稿に付与した絵文字</span></li>
@@ -446,7 +446,7 @@
           <li><span>ユーザー認証・セキュリティの維持・不正利用の防止</span></li>
           <li><span>通報されたコンテンツの審査・モデレーション</span></li>
           <li><span>サブスクリプションプランの管理（特典の付与・解約反映等）</span></li>
-          <li><span>アプリのクラッシュ・エラー解析、品質改善</span></li>
+          <li><span>アプリのクラッシュ・エラー解析、品質改善（Apple が提供する診断データを利用）</span></li>
           <li><span>ユーザーサポート・お問い合わせ対応</span></li>
         </ul>
       </div>
@@ -460,9 +460,9 @@
       </div>
       <div class="section-body">
         <ul class="policy-list">
-          <li><span>アカウント・投稿等のデータは Supabase（PostgreSQL）に保存し、Row Level Security により本人以外からのアクセスを制限しています</span></li>
-          <li><span>写真等のアセットは Supabase Storage に保存します</span></li>
-          <li><span>パスワードは Supabase Auth により安全にハッシュ化されます。当アプリ運営者は平文パスワードにアクセスできません</span></li>
+          <li><span>アカウント・投稿等のデータは Supabase（PostgreSQL）に保存し、Row Level Security により本人以外からのアクセスを制限しています。データベース・ストレージは<strong>東京リージョン（日本国内）</strong>に保存されます</span></li>
+          <li><span>写真等のアセットは Supabase Storage に保存します（東京リージョン）</span></li>
+          <li><span>パスワードは Supabase Auth により安全にハッシュ化されます。運営者は平文パスワードにアクセスできません</span></li>
           <li><span>認証トークンは端末の SecureStore（暗号化ストレージ）に保存します</span></li>
           <li><span>通信は HTTPS で暗号化します</span></li>
           <li><span>サブスクリプション情報は Apple／Google から提供される情報を当アプリのサーバーで検証して保存します</span></li>
@@ -481,15 +481,27 @@
         <div class="third-party-list" style="margin-top: 16px;">
           <div class="third-party-item">
             <span class="third-party-name">Supabase</span>
-            <span class="third-party-desc">バックエンド・認証・ストレージ（米 Supabase, Inc.）</span>
+            <span class="third-party-desc">バックエンド・認証・ストレージ（Supabase Pte. Ltd.、シンガポール法人）。データベース・ストレージは東京リージョン（日本国内）に保存されます。</span>
           </div>
           <div class="third-party-item">
             <span class="third-party-name">RevenueCat</span>
             <span class="third-party-desc">サブスクリプション管理・レシート検証（米 RevenueCat, Inc.）サブスクリプションの加入状況・購入日時・期限・ストア種別等の課金イベントを処理します。</span>
           </div>
           <div class="third-party-item">
+            <span class="third-party-name">Resend</span>
+            <span class="third-party-desc">メール送信（米 Resend, Inc.）認証メール・通知メールの配信に使用します。送信先メールアドレスを Resend に送信します。</span>
+          </div>
+          <div class="third-party-item">
+            <span class="third-party-name">Google Cloud Vision</span>
+            <span class="third-party-desc">不適切画像の自動検知のため、投稿画像のアップロード時に Google LLC の Cloud Vision API（SafeSearch 検出）へ画像を送信し、不適切な内容を含む可能性の判定結果のみを受け取ります。顔認識・文字認識（OCR）等の目的には使用しません。送信された画像は判定処理のみに使用され、Google のサーバーに保存されることや、Google の AI の学習に利用されることはありません。</span>
+          </div>
+          <div class="third-party-item">
+            <span class="third-party-name">Cloudflare</span>
+            <span class="third-party-desc">画像配信 CDN（Cloudflare, Inc.）投稿画像・プロフィール画像を Cloudflare 経由で配信します。</span>
+          </div>
+          <div class="third-party-item">
             <span class="third-party-name">Apple</span>
-            <span class="third-party-desc">iOS のアプリ内課金・通知（Apple Inc.）</span>
+            <span class="third-party-desc">iOS のアプリ内課金・通知、および Apple が提供するクラッシュレポート・診断データ（Apple Inc.）。診断データの送信はデバイスの設定でオプトアウトできます。</span>
           </div>
           <div class="third-party-item">
             <span class="third-party-name">Google</span>
@@ -503,10 +515,26 @@
       </div>
     </section>
 
-    <!-- 5. 情報の共有と開示 -->
+    <!-- 5. 外国にある第三者への提供（個人情報保護法第28条） -->
     <section class="policy-section">
       <div class="section-header">
         <span class="section-num">05</span>
+        <h2 class="section-title">外国にある第三者への提供</h2>
+      </div>
+      <div class="section-body">
+        <p>当アプリは、前条に記載したサービスのうち RevenueCat、Resend、Google Cloud Vision、Cloudflare 等の米国に拠点を置く事業者、および Supabase Pte. Ltd.（シンガポール法人）に対し、サービスの提供・運営上必要な個人情報を保存・処理委託しています。なお、Supabase に保存するデータは東京リージョン（日本国内）に置かれています。</p>
+        <p>これらの移転先は、個人情報の保護に関する法律（個人情報保護法）第28条に規定する「外国にある第三者」に該当します。運営者は以下の措置を講じています。</p>
+        <ul class="policy-list">
+          <li><span>移転先各社との間で個人データの取り扱いに関する契約（DPA 等）を締結し、適切な保護水準を確保しています</span></li>
+          <li><span>移転先の国名、当該国における個人情報保護に関する制度の概要、および講じている措置の詳細については、ご請求に応じて遅滞なくご案内します（下記「お問い合わせ」よりご連絡ください）</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. 情報の共有と開示 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">06</span>
         <h2 class="section-title">情報の共有と開示</h2>
       </div>
       <div class="section-body">
@@ -515,42 +543,47 @@
           <li><span>ユーザーの同意がある場合</span></li>
           <li><span>法令に基づく開示が求められた場合</span></li>
           <li><span>人の生命、身体または財産の保護のために必要がある場合</span></li>
-          <li><span>サービスの提供に必要な業務委託先（前項の第三者サービス）への開示（適切な管理下で）</span></li>
+          <li><span>サービスの提供に必要な業務委託先（第4条に定める第三者サービス）への開示（適切な管理下で）</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- 6. ユーザーの権利 -->
+    <!-- 7. ユーザーの権利 -->
     <section class="policy-section">
       <div class="section-header">
-        <span class="section-num">06</span>
+        <span class="section-num">07</span>
         <h2 class="section-title">ユーザーの権利</h2>
       </div>
       <div class="section-body">
         <ul class="rights-list">
-          <li><span>個人情報の閲覧・訂正・削除を請求する権利</span></li>
-          <li><span>個人情報の利用停止を請求する権利</span></li>
-          <li><span>データのポータビリティを請求する権利</span></li>
+          <li><span>保有個人データの開示を請求する権利</span></li>
+          <li><span>内容の訂正・追加・削除を請求する権利</span></li>
+          <li><span>利用停止・第三者提供の停止を請求する権利</span></li>
         </ul>
-        <p style="margin-top: 16px;">アカウントの削除（退会）は <strong>設定 → アカウント → アカウントの削除</strong> から、ご自身でいつでも実行できます。削除すると関連するデータは速やかに削除または匿名化されます（法的保存義務がある場合を除く）。</p>
+        <p style="margin-top: 16px;">これらの請求は、下記「お問い合わせ」よりご連絡ください。本人確認を行った上で、遅滞なく対応します。</p>
+        <p>アカウントの削除（退会）は <strong>設定 → アカウント → アカウントの削除</strong> から、ご自身でいつでも実行できます。削除すると関連するデータは速やかに削除または匿名化されます（法的保存義務がある場合、および下記保存期間の例外に該当する場合を除く）。</p>
       </div>
     </section>
 
-    <!-- 7. データの保存期間 -->
-    <section class="policy-section">
-      <div class="section-header">
-        <span class="section-num">07</span>
-        <h2 class="section-title">データの保存期間</h2>
-      </div>
-      <div class="section-body">
-        <p>当アプリは、ユーザーがアカウントを削除するまで、またはユーザーが削除を要求するまで、個人情報を保存します。アカウント削除後は、法的な保存義務がある場合を除き、個人情報を削除します。バックアップから完全に消去されるまで最長30日かかる場合があります。</p>
-      </div>
-    </section>
-
-    <!-- 8. 子どもの個人情報 -->
+    <!-- 8. データの保存期間 -->
     <section class="policy-section">
       <div class="section-header">
         <span class="section-num">08</span>
+        <h2 class="section-title">データの保存期間</h2>
+      </div>
+      <div class="section-body">
+        <p>当アプリは、ユーザーがアカウントを削除するまで、またはユーザーが削除を要求するまで、個人情報を保存します。アカウント削除後は、以下の例外を除き、個人情報を削除します。バックアップから完全に消去されるまで最長30日かかる場合があります。</p>
+        <ul class="policy-list" style="margin-top: 8px;">
+          <li><span><strong>法的保存義務がある場合</strong>：関連法令に定める期間、必要な情報を保持します。</span></li>
+          <li><span><strong>規約違反・通報に関する記録</strong>：不正アカウントの再登録や規制逃れを防止する目的で、違反の事実・措置の記録を削除後も最長1年間保持する場合があります。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 9. 子どもの個人情報 -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">09</span>
         <h2 class="section-title">子どもの個人情報</h2>
       </div>
       <div class="section-body">
@@ -561,7 +594,7 @@
     <!-- 10. プライバシーポリシーの変更 -->
     <section class="policy-section">
       <div class="section-header">
-        <span class="section-num">09</span>
+        <span class="section-num">10</span>
         <h2 class="section-title">プライバシーポリシーの変更</h2>
       </div>
       <div class="section-body">
@@ -572,12 +605,17 @@
     <!-- 11. お問い合わせ -->
     <section class="policy-section">
       <div class="section-header">
-        <span class="section-num">10</span>
+        <span class="section-num">11</span>
         <h2 class="section-title">お問い合わせ</h2>
       </div>
       <div class="section-body">
         <div class="contact-box">
-          個人情報の取り扱いに関するご質問やご要望がございましたら、アプリ内の <strong>設定 → お問い合わせ</strong> よりご連絡ください。
+          <strong>運営者：</strong>Kyota<br>
+          <strong>住所：</strong>請求があれば遅滞なく開示します<br>
+          <strong>メール：</strong><a href="mailto:support@daibapp.com" style="color: var(--accent);">support@daibapp.com</a><br>
+          <strong>アプリ内：</strong>設定 → お問い合わせ<br>
+          <br>
+          個人情報の取り扱いに関するご質問・開示等のご請求、または第5条に基づく外国移転先に関する情報提供のご要望は、上記メールアドレスまたはアプリ内お問い合わせフォームよりご連絡ください。なお、退会済みの方や、投稿画像に写った第三者の方もメールにてお問い合わせいただけます。
         </div>
       </div>
     </section>
@@ -585,7 +623,7 @@
     <!-- Footer -->
     <footer class="page-footer">
       <span>© 2026 DaiB</span>
-      <span>制定日：2026年4月27日　／　最終更新日：2026年9月6日</span>
+      <span>制定日：2026年4月27日　／　最終更新日：2026年9月27日</span>
     </footer>
 
   </div>
